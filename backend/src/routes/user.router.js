@@ -20,7 +20,7 @@ router.patch(
 );
 
 router.delete(
-  "/",
+  "/:uid",
   bodyValidation(static.USER_DELETE_SCHEMA),
   userController.deleteUser
 );

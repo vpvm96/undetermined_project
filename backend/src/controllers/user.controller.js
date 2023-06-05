@@ -33,7 +33,7 @@ userController.updateUser = async function (req, res) {
 };
 
 userController.deleteUser = async function (req, res) {
-  const { uid } = req.body;
+  const { uid } = req.params;
   const result = await userService.deleteUser(uid);
   res.status(200).send(result);
 };
