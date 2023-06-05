@@ -13,4 +13,16 @@ router.post(
   userController.postUser
 );
 
+router.patch(
+  "/",
+  bodyValidation(static.USER_UPDATE_SCHEMA),
+  userController.updateUser
+);
+
+router.delete(
+  "/",
+  bodyValidation(static.USER_DELETE_SCHEMA),
+  userController.deleteUser
+);
+
 module.exports = router;
