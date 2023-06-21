@@ -9,6 +9,14 @@ userController.getUsers = async function (req, res) {
   });
 };
 
+userController.getUser = async function (req, res) {
+  const { uid } = req.params;
+  const user = await userService.getUser(uid);
+  res.status(200).json({
+    user: user,
+  });
+};
+
 userController.postUser = async function (req, res) {
   const { uid, email, password, username, nickname } = req.body;
   const result = await userService.postUser(
@@ -22,7 +30,8 @@ userController.postUser = async function (req, res) {
 };
 
 userController.updateUser = async function (req, res) {
-  const { uid, password, username, nickname } = req.body;
+  const { uid } = req.params;
+  const { password, username, nickname } = req.body;
   const result = await userService.updateUser(
     uid,
     password,

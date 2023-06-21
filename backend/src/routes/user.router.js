@@ -7,6 +7,8 @@ const router = express.Router();
 
 router.get("/", userController.getUsers);
 
+router.get("/:uid", userController.getUser);
+
 router.post(
   "/",
   bodyValidation(static.USER_POST_SCHEMA),
@@ -14,7 +16,7 @@ router.post(
 );
 
 router.patch(
-  "/",
+  "/:uid",
   bodyValidation(static.USER_UPDATE_SCHEMA),
   userController.updateUser
 );
